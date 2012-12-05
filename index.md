@@ -33,3 +33,7 @@ on Thursday, December 6th, at 17:00!
 Your Software Therapists,
 Rike and Tiziano
 
+### Sponsored by
+
+<p><a href="http://www.technologit.de"><img src="images/technologit-logo.png" alt="Technologit GbR"></a></p>
+
