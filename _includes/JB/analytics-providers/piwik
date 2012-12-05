@@ -1,0 +1,12 @@
+<!-- Piwik --> 
+<script type="text/javascript">
+var pkBaseURL = "{{ site.JB.analytics.piwik.base_url }}";
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", {{ site.JB.analytics.piwik.site_id }});
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="{{ site.JB.analytics.piwik.base_url }}piwik.php?idsite={{ site.JB.analytics.piwik.site_id }}" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
