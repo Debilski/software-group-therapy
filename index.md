@@ -37,3 +37,23 @@ Rike and Tiziano
 
 <p><a href="http://www.technologit.de"><img src="images/technologit-logo.png" alt="Technologit GbR"></a></p>
 
+## Sessions
+
+<ul class="posts">
+  {% for post in site.posts %}
+    {% if post.category == "sessions" %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+## Articles
+
+<ul class="posts">
+  {% for post in site.posts %}
+    {% if post.category == "articles" %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
