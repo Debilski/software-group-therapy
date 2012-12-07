@@ -100,6 +100,11 @@ task :preview do
   system "jekyll --auto --server"
 end # task :preview
 
+desc "Generate site"
+task :generate do
+  system "jekyll --no-auto --safe"
+end # task :generate
+
 # Public: Alias - Maintains backwards compatability for theme switching.
 task :switch_theme => "theme:switch"
 
