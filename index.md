@@ -5,7 +5,7 @@ tagline: treating the sad scientific developer
 ---
 {% include JB/setup %}
 
-## First session
+## Introduction
 
 <p><img src="images/freud.jpg" class="img-polaroid" alt="Freud"></p>
 
