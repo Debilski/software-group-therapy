@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Software Group Therapy
-tagline: treating the sad scientific developer
+tagline: treating the troubled programming scientist
 ---
 {% include JB/setup %}
 
