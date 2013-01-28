@@ -14,34 +14,34 @@ tags: [article, random numbers, MATLAB, gotchas]
 
 Every time we start MATLAB and run
 
-{% highlight matlab %}
+```matlab
 >> rand
 
 ans =
 
     0.8147
-{% endhighlight %}
+```
 
 we’ll get the same result. We close it, start again, it’s
 
-{% highlight matlab %}
+```matlab
 >> %-- new session --%
 >> rand
 
 ans =
 
     0.8147
-{% endhighlight %}
+```
 
 Same is true for `randn` and `randi`:
 
-{% highlight matlab %}
+```matlab
 >> randn
 
 ans =
 
     0.5377
-{% endhighlight %}
+```
 
 
 Why is that? By default, the random number generator (rng) in MATLAB is seeded with a constant (it’s `5489` or `0` depending on context for reasons unknown).
@@ -52,9 +52,9 @@ When doing simulations, however, we might want to change this as not to get the 
 
 If you’re just looking for a how-to:
 
-{% highlight matlab %}
+```matlab
 rng('shuffle')
-{% endhighlight %}
+```
 
 done!
 
@@ -64,10 +64,10 @@ If this doesn’t work or you want to have more information about what’s going
 
 Many online tutorials present the following lines of code as solution to the problem:
 
-{% highlight matlab %}
+```matlab
 rand('seed', sum(100*clock));
 randn('seed', sum(100*clock));
-{% endhighlight %}
+```
 
 These lines seem reasonably intuitive, containing the name `'seed'`. `clock` returns a vector with current time and date which we also multiply with 100 in order to get a new number every 1/100 of a second.
 
@@ -82,7 +82,7 @@ This, however, does not really do what we expect from it. While the snippet seed
 
 MATLAB 2011a comes with a handy `rng` function which should be used to initialise the random number generator without resetting the algorithm.
 
-{% highlight matlab %}
+```matlab
 >> rng('shuffle')
 >> rng
 
@@ -91,11 +91,11 @@ ans =
      Type: 'twister'
      Seed: 411462746
     State: [625x1 uint32]
-{% endhighlight %}
+```
 
 In order to initialise the rng with the specific seed `12345`.
 
-{% highlight matlab %}
+```matlab
 >> rng(12345)
 >> rng
 
@@ -104,11 +104,11 @@ ans =
      Type: 'twister'
      Seed: 12345
      State: [625x1 uint32]
-{% endhighlight %}
+```
 
 In case we *do* want to change the algorithm being used, we need to specify it explicitly:
 
-{% highlight matlab %}
+```matlab
 >> rng('shuffle', 'v5uniform') % instead of 'shuffle' we could also use an integer seed
 >> rng
 
@@ -117,11 +117,11 @@ ans =
      Type: 'v5uniform'
      Seed: 411487724
     State: [35x1 double]
-{% endhighlight %}
+```
 
 If we want to reset the state to MATLAB’s startup value, it’s as simple as:
 
-{% highlight matlab %}
+```matlab
 >> rng('default')
 >> rng
 
@@ -136,7 +136,7 @@ ans =
 ans =
 
     0.8147
-{% endhighlight %}
+```
 
 <small>Note that while it shows the seed as `0`, we’ll get the same random numbers as if we used `5489` as a seed. Both `0` and `'default'` seem to be hardcoded to use that number internally.</small>
 
@@ -145,10 +145,10 @@ ans =
 
 Until MATLAB version 2010b, one should use the more verbose
 
-{% highlight matlab %}
+```matlab
 s = RandStream('mt19937ar', 'Seed', 'shuffle'); % if 'shuffle' does not work, use the old sum(100*clock)
 RandStream.setDefaultStream(s); % changed to setGlobalStream in later versions
-{% endhighlight %}
+```
 
 This sets the global rng used by `rand`, `randn` and `randi`.
 
