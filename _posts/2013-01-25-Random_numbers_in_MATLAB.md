@@ -48,7 +48,7 @@ Why is that? By default, the random number generator (rng) in MATLAB is seeded w
 
 When doing simulations, however, we might want to change this as not to get the same outcome of our experiments each and every time. (Unless, of course, that outcome is a fixpoint in our whole calculation.)
 
-## The correct way
+### The correct way
 
 If you’re just looking for a how-to:
 
@@ -60,9 +60,11 @@ done!
 
 If this doesn’t work or you want to have more information about what’s going on, please read on.
 
-## The wrong way
+### The wrong way
 
 Many online tutorials present the following lines of code as solution to the problem:
+
+<span class="label label-important">Bad – don’t use this anymore</span>
 
 ```matlab
 rand('seed', sum(100*clock));
@@ -71,12 +73,12 @@ randn('seed', sum(100*clock));
 
 These lines seem reasonably intuitive, containing the name `'seed'`. `clock` returns a vector with current time and date which we also multiply with 100 in order to get a new number every 1/100 of a second.
 
-This, however, does not really do what we expect from it. While the snippet seeds the rng with the current time (which is what we wanted it to do) it also changes the *algorithm* of the random number generator (which we probably did not want). `'seed'` in this case represents the choice of the algorithm and it’s the most basic one MATLAB has to offer[1].
+This, however, does not really do what we expect from it. While the snippet seeds the rng with the current time (which is what we wanted it to do) it also changes the *algorithm* of the random number generator (which we probably did not want). `'seed'` in this case represents the choice of the algorithm and it’s the most basic one MATLAB has to offer.
 
-**1**: <small>`'seed'` represents the default for MATLAB v4 and Wikipedia says this one came out in 1992. In 1996 v5 changed the default rng to `'state'` which is outdated as well. `'twister'` would be the ‘modern’ one to use in that syntax.</small>
+<small><span class="label label-info">Info</span> `'seed'` represents the default for MATLAB v4 and Wikipedia says this one came out in 1992. In 1996 v5 changed the default rng to `'state'` which is outdated as well. `'twister'` would be the ‘modern’ one to use in that syntax.</small>
 
 
-## Solution
+## Explanation
 
 ### Since 2011a
 
@@ -138,7 +140,7 @@ ans =
     0.8147
 ```
 
-<small>Note that while it shows the seed as `0`, we’ll get the same random numbers as if we used `5489` as a seed. Both `0` and `'default'` seem to be hardcoded to use that number internally.</small>
+<small><span class="label label-info">Info</span> Note that while it shows the seed as `0`, we’ll get the same random numbers as if we used `5489` as a seed. Both `0` and `'default'` seem to be hardcoded to use that number internally.</small>
 
 
 ### Older versions
