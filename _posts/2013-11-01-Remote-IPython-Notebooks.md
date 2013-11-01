@@ -10,7 +10,7 @@ tags: [article, Python, IPython, howto]
 
 ## Task
 
-We’d like to run an IPython notebook session on a remote computer.
+We’d like to run an [IPython notebook](http://ipython.org/notebook.html) session on a remote computer.
 
 ## Howto
 
