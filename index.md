@@ -27,9 +27,6 @@ to find solutions together.
 
 Beer and chips will be provided courtesy of [Technologit.de](http://www.technologit.de).
 
-Come on down to the PC Pool in Haus 2 of the BCCN <http://is.gd/PCPool>
-on Thursday, December 6th, at 17:00!
-
 Your Software Therapists,
 Rike and Tiziano
 
